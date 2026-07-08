@@ -1,6 +1,6 @@
 // Datos de documentos - INVERSIONES FONSECA ELZE
 // Actualizado: 08 Jul 2026
-// Total: 12 documentos subidos
+// Total: 20 documentos subidos
 
 const documents = [
     // ==================== ANÁLISIS DE INVERSIONES ====================
@@ -31,10 +31,28 @@ const documents = [
         date: "08 Jul 2026",
         url: "PPT%20ARQUITETURA%20.pdf"
     },
+    {
+        id: 4,
+        name: "PPT Himalaya 2 Castellano",
+        category: "analisis",
+        icon: "fas fa-file-pdf",
+        size: "10.2 MB",
+        date: "08 Jul 2026",
+        url: "PPT%20HIMALAYA%202%20CASTELLANO%20.pdf"
+    },
+    {
+        id: 5,
+        name: "PPT Suba Himalaya Inglés",
+        category: "analisis",
+        icon: "fas fa-file-pdf",
+        size: "13.6 MB",
+        date: "08 Jul 2026",
+        url: "PPT%20SUBA%20HIMALAYA%20%20INGLES%20.pdf"
+    },
 
     // ==================== ESTADOS FINANCIEROS ====================
     {
-        id: 4,
+        id: 6,
         name: "Modelo Financiero Consolidado 4 Hojas",
         category: "financieros",
         icon: "fas fa-file-excel",
@@ -43,7 +61,7 @@ const documents = [
         url: "Modelo_Financiero_Consolidado_4Hojas%20(1).xlsx"
     },
     {
-        id: 5,
+        id: 7,
         name: "Consolidated Financial Model USD",
         category: "financieros",
         icon: "fas fa-file-excel",
@@ -52,7 +70,16 @@ const documents = [
         url: "Consolidated_Financial_Model_USD%20(1)%20(2).xlsx"
     },
     {
-        id: 6,
+        id: 8,
+        name: "Cerros de Suba Prefeasibility USD",
+        category: "financieros",
+        icon: "fas fa-file-excel",
+        size: "21 KB",
+        date: "08 Jul 2026",
+        url: "Cerros_de_Suba_Prefeasibility_USD_EN_2026.xlsx"
+    },
+    {
+        id: 9,
         name: "Informe de Gestión Financiera 118",
         category: "financieros",
         icon: "fas fa-file-pdf",
@@ -61,7 +88,7 @@ const documents = [
         url: "Informe%20de%20Gestio%CC%81n%20Financiera%20118%20.pdf"
     },
     {
-        id: 7,
+        id: 10,
         name: "Dashboard Cifras de Ventas",
         category: "financieros",
         icon: "fas fa-file-pdf",
@@ -72,7 +99,7 @@ const documents = [
 
     // ==================== DOCUMENTOS CORPORATIVOS ====================
     {
-        id: 8,
+        id: 11,
         name: "Memorandum Financiero Fonseca Elze Dubai 2026",
         category: "corporativos",
         icon: "fas fa-file-pdf",
@@ -81,7 +108,7 @@ const documents = [
         url: "Memorandum_Financiero_Fonseca_Elze_Dubai_2026_USD20M_v3%20(1).pdf"
     },
     {
-        id: 9,
+        id: 12,
         name: "Santa Bárbara 118 Institutional Memorandum",
         category: "corporativos",
         icon: "fas fa-file-pdf",
@@ -92,7 +119,7 @@ const documents = [
 
     // ==================== PROYECCIONES Y ESTRATEGIA ====================
     {
-        id: 10,
+        id: 13,
         name: "PTT Inglés Santa Bárbara 118",
         category: "proyecciones",
         icon: "fas fa-file-pdf",
@@ -101,7 +128,7 @@ const documents = [
         url: "PTT%20INGLES%20SANTA%20BARBARA%20118.pdf"
     },
     {
-        id: 11,
+        id: 14,
         name: "Teaser Inglés",
         category: "proyecciones",
         icon: "fas fa-file-pdf",
@@ -109,22 +136,49 @@ const documents = [
         date: "08 Jul 2026",
         url: "TEASER%20INGLES%20.pdf"
     },
+    {
+        id: 15,
+        name: "Presentación Inversiones Fonseca Castellano",
+        category: "proyecciones",
+        icon: "fas fa-file-pdf",
+        size: "13.8 MB",
+        date: "08 Jul 2026",
+        url: "PRESENTACION%20INVERSIONES%20FONSECA%20CASTELLANO%20.pdf"
+    },
+    {
+        id: 16,
+        name: "Presentación Inversiones Fonseca Inglés",
+        category: "proyecciones",
+        icon: "fas fa-file-pdf",
+        size: "17.3 MB",
+        date: "08 Jul 2026",
+        url: "PRESENTACION%20INVERSIONES%20FONSECA%20INGLES%20.pdf"
+    },
 
     // ==================== OTROS DOCUMENTOS ====================
     {
-        id: 12,
-        name: "Cerros del Himalaya - Informe",
+        id: 17,
+        name: "Cerros del Himalaya INFORME",
         category: "otros",
         icon: "fas fa-file-pdf",
         size: "103 KB",
         date: "08 Jul 2026",
         url: "Cerros_del_Himalaya_INFORME.pdf"
     },
+    {
+        id: 18,
+        name: "Cerros del Himalaya CKLC",
+        category: "otros",
+        icon: "fas fa-file-pdf",
+        size: "103 KB",
+        date: "08 Jul 2026",
+        url: "Cerros_del_Himalaya_CKLC.pdf"
+    },
 
     // ==================== AGREGAR MÁS DOCUMENTOS AQUÍ ====================
     // Estructura para agregar nuevos documentos:
     // {
-    //     id: 13,
+    //     id: 19,
     //     name: "Nombre del Documento",
     //     category: "reportes", // o: financieros, analisis, corporativos, proyecciones, otros
     //     icon: "fas fa-file-pdf", // o: fas fa-file-excel, fas fa-file-word
@@ -167,7 +221,7 @@ function renderDocuments(docsToRender = documents) {
     `).join('');
 }
 
-// Obtener etiqueta de categor��a
+// Obtener etiqueta de categoría
 function getCategoryLabel(category) {
     const labels = {
         'reportes': 'Reportes Trimestrales',
