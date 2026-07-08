@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INVERSIONES FONSECA ELZE - Centro de Documentos Corporativos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a1628;
+            --primary-blue: #1e3a5f;
+            --secondary-blue: #2d5a8c;
+            --accent-gold: #d4af37;
+            --text-light: #f5f5f5;
+            --text-dark: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: var(--text-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.1);
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 18px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .stat {
+            padding: 10px 20px;
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid var(--accent-gold);
+            border-radius: 5px;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #ccc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* SEARCH & FILTERS */
+        .search-section {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid var(--accent-gold);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            background: #fff;
+        }
+
+        /* FILTERS */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            border: 2px solid var(--accent-gold);
+            background: transparent;
+            color: var(--accent-gold);
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter-btn:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        /* DOCUMENTS GRID */
+        .documents-section {
+            margin-bottom: 50px;
+        }
+
+        #documentsGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .document-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 245, 0.95) 100%);
+            border: 2px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .document-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.25);
+            border-color: #ffd700;
+        }
+
+        .document-icon {
+            font-size: 48px;
+            color: var(--accent-gold);
+            text-align: center;
+        }
+
+        .document-category {
+            display: inline-block;
+            background: var(--secondary-blue);
+            color: var(--accent-gold);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .document-name {
+            color: var(--primary-dark);
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.4;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .document-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .document-size,
+        .document-date {
+            font-weight: 600;
+        }
+
+        .download-btn {
+            padding: 12px 20px;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .download-btn:hover {
+            background: #ffd700;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+        }
+
+        .download-btn i {
+            font-size: 14px;
+        }
+
+        /* NO RESULTS */
+        #noResults {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 2px dashed var(--accent-gold);
+            display: none;
+        }
+
+        #noResults i {
+            font-size: 64px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        #noResults p {
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 2px solid var(--accent-gold);
+            margin-top: 50px;
+        }
+
+        .footer p {
+            margin: 8px 0;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer strong {
+            color: var(--accent-gold);
+            font-size: 16px;
+        }
+
+        .footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .filter-btn {
+                padding: 10px 16px;
+                font-size: 12px;
+            }
+
+            #documentsGrid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .header-stats {
+                gap: 15px;
+            }
+
+            .stat {
+                flex: 1;
+                min-width: 120px;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .document-card {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        /* SCROLL */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>🏢 INVERSIONES FONSECA ELZE</h1>
+            <p>Centro de Documentos Corporativos</p>
+            <div class="header-stats">
+                <div class="stat">
+                    <div class="stat-number">20</div>
+                    <div class="stat-label">Documentos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Categorías</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Disponible</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="🔍 Busca documentos por nombre o categoría..."
+            >
+        </div>
+
+        <!-- FILTERS -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="todos">
+                <i class="fas fa-th"></i> Todos (20)
+            </button>
+            <button class="filter-btn" data-filter="analisis">
+                <i class="fas fa-chart-line"></i> Análisis (5)
+            </button>
+            <button class="filter-btn" data-filter="financieros">
+                <i class="fas fa-dollar-sign"></i> Financieros (5)
+            </button>
+            <button class="filter-btn" data-filter="corporativos">
+                <i class="fas fa-building"></i> Corporativos (2)
+            </button>
+            <button class="filter-btn" data-filter="proyecciones">
+                <i class="fas fa-rocket"></i> Proyecciones (4)
+            </button>
+            <button class="filter-btn" data-filter="otros">
+                <i class="fas fa-folder"></i> Otros (2)
+            </button>
+        </div>
+
+        <!-- DOCUMENTS -->
+        <div class="documents-section">
+            <div id="documentsGrid"></div>
+            <div id="noResults">
+                <i class="fas fa-search"></i>
+                <p>No se encontraron documentos</p>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p><strong>© 2026 INVERSIONES FONSECA ELZE</strong></p>
+            <p>Centro de Documentos Corporativos - Plataforma Profesional</p>
+            <p>
+                <a href="reloj-digital.html">⏰ Reloj Digital</a> •
+                <a href="#">📧 Contacto</a> •
+                <a href="#">📋 Términos</a>
+            </p>
+            <p style="margin-top: 20px; color: #999; font-size: 12px;">
+                Todos los derechos reservados • Acceso seguro y profesional
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
