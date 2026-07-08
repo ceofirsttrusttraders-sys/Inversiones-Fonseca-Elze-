@@ -1,5 +1,9 @@
-// Datos de documentos - ACTUALIZADO EN TIEMPO REAL
+// Datos de documentos - INVERSIONES FONSECA ELZE
+// Actualizado: 08 Jul 2026
+// Total: 12 documentos subidos
+
 const documents = [
+    // ==================== ANÁLISIS DE INVERSIONES ====================
     {
         id: 1,
         name: "Capital Engineering Blueprint",
@@ -12,7 +16,7 @@ const documents = [
     {
         id: 2,
         name: "Structured Finance Blueprint",
-        category: "proyecciones",
+        category: "analisis",
         icon: "fas fa-file-pdf",
         size: "13.6 MB",
         date: "08 Jul 2026",
@@ -20,13 +24,15 @@ const documents = [
     },
     {
         id: 3,
-        name: "Memorandum Financiero Fonseca Elze Dubai 2026 USD20M v3",
-        category: "corporativos",
+        name: "PPT Arquitectura",
+        category: "analisis",
         icon: "fas fa-file-pdf",
-        size: "72 KB",
+        size: "11.8 MB",
         date: "08 Jul 2026",
-        url: "Memorandum_Financiero_Fonseca_Elze_Dubai_2026_USD20M_v3%20(1).pdf"
+        url: "PPT%20ARQUITETURA%20.pdf"
     },
+
+    // ==================== ESTADOS FINANCIEROS ====================
     {
         id: 4,
         name: "Modelo Financiero Consolidado 4 Hojas",
@@ -45,7 +51,87 @@ const documents = [
         date: "08 Jul 2026",
         url: "Consolidated_Financial_Model_USD%20(1)%20(2).xlsx"
     },
-    // PRÓXIMOS DOCUMENTOS IRÁN AQUÍ CONFORME LOS SUBAS
+    {
+        id: 6,
+        name: "Informe de Gestión Financiera 118",
+        category: "financieros",
+        icon: "fas fa-file-pdf",
+        size: "549 KB",
+        date: "08 Jul 2026",
+        url: "Informe%20de%20Gestio%CC%81n%20Financiera%20118%20.pdf"
+    },
+    {
+        id: 7,
+        name: "Dashboard Cifras de Ventas",
+        category: "financieros",
+        icon: "fas fa-file-pdf",
+        size: "55 KB",
+        date: "08 Jul 2026",
+        url: "DASHBOARD%20CIFRAS%20DE%20VENTAS%20.pdf"
+    },
+
+    // ==================== DOCUMENTOS CORPORATIVOS ====================
+    {
+        id: 8,
+        name: "Memorandum Financiero Fonseca Elze Dubai 2026",
+        category: "corporativos",
+        icon: "fas fa-file-pdf",
+        size: "72 KB",
+        date: "08 Jul 2026",
+        url: "Memorandum_Financiero_Fonseca_Elze_Dubai_2026_USD20M_v3%20(1).pdf"
+    },
+    {
+        id: 9,
+        name: "Santa Bárbara 118 Institutional Memorandum",
+        category: "corporativos",
+        icon: "fas fa-file-pdf",
+        size: "13.6 MB",
+        date: "08 Jul 2026",
+        url: "2Santa_Ba%CC%81rbara_118_Institutional_Memorandum.pdf"
+    },
+
+    // ==================== PROYECCIONES Y ESTRATEGIA ====================
+    {
+        id: 10,
+        name: "PTT Inglés Santa Bárbara 118",
+        category: "proyecciones",
+        icon: "fas fa-file-pdf",
+        size: "15.1 MB",
+        date: "08 Jul 2026",
+        url: "PTT%20INGLES%20SANTA%20BARBARA%20118.pdf"
+    },
+    {
+        id: 11,
+        name: "Teaser Inglés",
+        category: "proyecciones",
+        icon: "fas fa-file-pdf",
+        size: "16.6 MB",
+        date: "08 Jul 2026",
+        url: "TEASER%20INGLES%20.pdf"
+    },
+
+    // ==================== OTROS DOCUMENTOS ====================
+    {
+        id: 12,
+        name: "Cerros del Himalaya - Informe",
+        category: "otros",
+        icon: "fas fa-file-pdf",
+        size: "103 KB",
+        date: "08 Jul 2026",
+        url: "Cerros_del_Himalaya_INFORME.pdf"
+    },
+
+    // ==================== AGREGAR MÁS DOCUMENTOS AQUÍ ====================
+    // Estructura para agregar nuevos documentos:
+    // {
+    //     id: 13,
+    //     name: "Nombre del Documento",
+    //     category: "reportes", // o: financieros, analisis, corporativos, proyecciones, otros
+    //     icon: "fas fa-file-pdf", // o: fas fa-file-excel, fas fa-file-word
+    //     size: "X MB",
+    //     date: "DD Mon YYYY",
+    //     url: "nombre_archivo.pdf"
+    // },
 ];
 
 // Filtro actual
@@ -81,7 +167,7 @@ function renderDocuments(docsToRender = documents) {
     `).join('');
 }
 
-// Obtener etiqueta de categoría
+// Obtener etiqueta de categor��a
 function getCategoryLabel(category) {
     const labels = {
         'reportes': 'Reportes Trimestrales',
